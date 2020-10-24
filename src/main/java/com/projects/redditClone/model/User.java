@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -26,6 +27,7 @@ public class User {
     @GeneratedValue(strategy = IDENTITY)
     private Long userId;
     @NotBlank(message = "Username is required")
+    @Column(unique=true)
     private String username;
     @NotBlank(message = "Password is required")
     private String password;
